@@ -85,7 +85,7 @@ Natural Language Input
 ## Project Structure
 
 ```
-sailpoint-agentic-demo/
+AgentGuard/
 ├── .env                     # API keys — never committed
 ├── .env.example             # Template for environment variables
 ├── .gitignore
@@ -129,8 +129,8 @@ The `examples/` folder contains standalone agent implementations for reference:
 ### Install
 
 ```bash
-git clone https://github.com/yourusername/sailpoint-agentic-demo
-cd sailpoint-agentic-demo
+git clone https://github.com/yourusername/AgentGuard
+cd AgentGuard
 
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
