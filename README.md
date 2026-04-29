@@ -129,7 +129,7 @@ The `examples/` folder contains standalone agent implementations for reference:
 ### Install
 
 ```bash
-git clone https://github.com/yourusername/AgentGuard
+git clone https://github.com/offlineprogrammer/AgentGuard.git
 cd AgentGuard
 
 python -m venv venv
