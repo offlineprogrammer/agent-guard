@@ -3,8 +3,6 @@
 
 > **AgentGuard** demonstrates what happens when AI agents request access to enterprise resources — and how identity governance controls, audits, and governs every decision before anything is provisioned.
 
-Built as a pre-employment portfolio project to demonstrate real-world agentic AI engineering and identity security expertise ahead of joining SailPoint's Agentic Technologists team.
-
 ---
 
 ## The Problem This Solves
@@ -266,13 +264,6 @@ Replace the mock functions in `tools/identity_tools.py` with HTTP calls to the [
 | **SOX** | SoD conflict detection prevents AI agents from creating financial control violations |
 | **EU AI Act** | Audit trail of AI agent decisions with governance controls demonstrates human oversight of high-risk AI |
 | **NIST AI RMF** | Policy engine maps to GOVERN and MANAGE functions — risk-based access control per RMF guidance |
-
----
-
-## Author
-
-**Mo Malaka** — Principal Solutions Consultant, SailPoint  
-Built as a pre-employment technical demonstration of agentic AI + identity governance engineering.
 
 ---
 
