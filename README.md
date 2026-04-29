@@ -157,6 +157,14 @@ streamlit run dashboard/app.py
 # Opens at http://localhost:8501
 ```
 
+**Run with Mock LLM** (no API keys required):
+
+```bash
+USE_MOCK_LLM=true python main.py
+```
+
+This mode runs the demo without calling OpenAI or any external LLM service — useful for testing the policy engine and audit logging without credentials.
+
 ---
 
 ## Demo Scenarios
@@ -209,31 +217,6 @@ A second agent attempts to request production database access for an engineer wi
 | RULE-004 | Risk-Based Access Control | User risk score ≥ 7 | ESCALATE |
 
 To add a new rule: extend `evaluate_access_request()` in `engine/policy_rules.py`. Each rule follows the same pattern — check condition, return a `PolicyDecision` with decision, reason, and rule name.
-
----
-
-## Using AWS Bedrock Instead of OpenAI
-
-To run AgentGuard with AWS Bedrock as the LLM backend (recommended for enterprise demos — no data sent to OpenAI):
-
-```bash
-pip install langchain-aws boto3
-aws configure   # enter your AWS access key + us-east-1
-
-# In agents/provisioner.py, replace ChatOpenAI with:
-from langchain_aws import ChatBedrock
-llm = ChatBedrock(
-    model_id="anthropic.claude-3-haiku-20240307-v1:0",
-    region_name="us-east-1",
-    model_kwargs={"temperature": 0, "max_tokens": 1000}
-)
-```
-
-**Why Bedrock matters in an enterprise demo:**
-- No training on customer data
-- VPC deployment — data never leaves your network
-- Full CloudTrail audit log of every LLM call
-- Compliant with SOC 2, HIPAA, FedRAMP
 
 ---
 
