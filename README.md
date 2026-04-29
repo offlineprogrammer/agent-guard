@@ -129,8 +129,8 @@ The `examples/` folder contains standalone agent implementations for reference:
 ### Install
 
 ```bash
-git clone https://github.com/offlineprogrammer/AgentGuard.git
-cd AgentGuard
+git clone https://github.com/offlineprogrammer/agent-guard.git
+cd agent-guard
 
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
