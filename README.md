@@ -132,7 +132,7 @@ The `examples/` folder contains standalone agent implementations for reference:
 git clone https://github.com/offlineprogrammer/agent-guard.git
 cd agent-guard
 
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
@@ -150,7 +150,7 @@ cp .env.example .env
 
 ```bash
 # Step 1 — Run both demo scenarios and populate the audit log
-python main.py
+python3 main.py
 
 # Step 2 — Launch the Streamlit dashboard
 streamlit run dashboard/app.py
