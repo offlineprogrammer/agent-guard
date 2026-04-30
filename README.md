@@ -87,7 +87,7 @@ Natural Language Input
 ## Project Structure
 
 ```
-AgentGuard/
+agent-guard/
 ├── .env                     # API keys — never committed
 ├── .env.example             # Template for environment variables
 ├── .gitignore
