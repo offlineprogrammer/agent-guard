@@ -1,6 +1,8 @@
 # 🛡 AgentGuard
 ### AI Agent Identity Governance — SailPoint-Style Policy Engine Demo
 
+![AgentGuard demo](agent-guard.png)
+
 > **AgentGuard** demonstrates what happens when AI agents request access to enterprise resources — and how identity governance controls, audits, and governs every decision before anything is provisioned.
 
 ---
