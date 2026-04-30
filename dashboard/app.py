@@ -32,7 +32,7 @@ if logs:
                   "ESCALATE": "background-color:#431407;color:#fdba74"}
         return colors.get(val, "")
 
-    cols = ["timestamp","user_id","resource","decision","policy_rule","reason","jit_expiry"]
+    cols = ["timestamp","agent_id","agent_name","user_id","resource","decision","policy_rule","reason","jit_expiry"]
     styled = df[cols].style.applymap(color_row, subset=["decision"])
     st.dataframe(styled, use_container_width=True, height=380)
 

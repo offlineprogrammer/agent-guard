@@ -15,6 +15,8 @@ load_dotenv()
 
 MOCK_ENV_VAR = "USE_MOCK_LLM"
 DEFAULT_OPENAI_MODEL = "gpt-3.5-turbo"
+AGENT_ID = "provisioner-agent-001"
+AGENT_NAME = "Provisioner Agent"
 
 @tool
 def provision_with_governance(user_id: str, resource: str, role: str,
@@ -31,7 +33,7 @@ def provision_with_governance(user_id: str, resource: str, role: str,
     if decision.decision == "APPROVED":
         jit_expiry = (datetime.datetime.now() + datetime.timedelta(hours=8)).isoformat()
 
-    log_decision("provisioner-agent-001", user_id, resource,
+    log_decision(AGENT_ID, AGENT_NAME, user_id, resource,
                   decision.decision, decision.policy_rule, decision.reason, jit_expiry)
 
     return json.dumps({

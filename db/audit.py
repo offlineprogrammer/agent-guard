@@ -10,6 +10,7 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp TEXT NOT NULL,
             agent_id TEXT NOT NULL,
+            agent_name TEXT NOT NULL,
             user_id TEXT NOT NULL,
             resource TEXT NOT NULL,
             decision TEXT NOT NULL,
@@ -18,12 +19,16 @@ def init_db():
             jit_expiry TEXT
         )""")
 
-def log_decision(agent_id, user_id, resource, decision, policy_rule, reason, jit_expiry=None):
+        columns = [row[1] for row in conn.execute("PRAGMA table_info(audit_log)").fetchall()]
+        if "agent_name" not in columns:
+            conn.execute("ALTER TABLE audit_log ADD COLUMN agent_name TEXT NOT NULL DEFAULT ''")
+
+def log_decision(agent_id, agent_name, user_id, resource, decision, policy_rule, reason, jit_expiry=None):
     with sqlite3.connect(DB_PATH) as conn:
         conn.execute("""INSERT INTO audit_log
-            (timestamp,agent_id,user_id,resource,decision,policy_rule,reason,jit_expiry)
-            VALUES (?,?,?,?,?,?,?,?)""",
-            (datetime.now().isoformat(), agent_id, user_id, resource,
+            (timestamp,agent_id,agent_name,user_id,resource,decision,policy_rule,reason,jit_expiry)
+            VALUES (?,?,?,?,?,?,?,?,?)""",
+            (datetime.now().isoformat(), agent_id, agent_name, user_id, resource,
              decision, policy_rule, reason, jit_expiry))
 
 def get_all_logs():
